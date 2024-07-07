@@ -57,6 +57,13 @@ def _get_2x_declarative_bases(
         if issubclass(b, (sa_orm.DeclarativeBase, sa_orm.DeclarativeBaseNoMeta))
     ]
 
+branch_coverage = {
+    "branch_1.1": False,
+    "branch_1.2": False,  
+    "branch_1.3": False,  
+    "branch_2.1": False,  
+    "branch_2.2": False,  
+}
 
 class SQLAlchemy:
     """Integrates SQLAlchemy with Flask. This handles setting up one or more engines,
@@ -461,12 +468,15 @@ class SQLAlchemy:
         .. versionadded:: 3.0
         """
         if bind_key in self.metadatas:
+            branch_coverage["branch_1.1"] = True
             return self.metadatas[bind_key]
 
         if bind_key is not None:
             # Copy the naming convention from the default metadata.
+            branch_coverage["branch_1.2"] = True
             naming_convention = self._make_metadata(None).naming_convention
         else:
+            branch_coverage["branch_1.3"] = True
             naming_convention = None
 
         # Set the bind key in info to be used by session.get_bind.
@@ -945,9 +955,11 @@ class SQLAlchemy:
         kwargs.setdefault("query_class", self.Query)
 
         if "backref" in kwargs:
+            branch_coverage["branch_2.1"] = True
             backref = kwargs["backref"]
 
             if isinstance(backref, str):
+                branch_coverage["branch_2.2"] = True
                 backref = (backref, {})
 
             backref[1].setdefault("query_class", self.Query)
@@ -1008,3 +1020,7 @@ class SQLAlchemy:
                 return getattr(mod, name)
 
         raise AttributeError(name)
+
+def print_coverage():
+    for branch, hit in branch_coverage.items():
+        print(f"{branch} was {'hit' if hit else 'not hit'}")
