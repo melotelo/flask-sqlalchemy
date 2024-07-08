@@ -71,7 +71,8 @@ The test file **test_extension.py** that I created, includes tests for both of t
 
 For improving coverage for Function 1(def \_make_metadata(self, bind_key: str \| None) -\> sa.MetaData:):
 
-> I implemented **test_make_metadata:** Which
+I implemented **test_make_metadata:** 
+Which
 >
 > ● Creates an instance of SQLAlchemy.
 >
@@ -81,7 +82,8 @@ For improving coverage for Function 1(def \_make_metadata(self, bind_key: str \|
 
 For improving coverage for Function 2(def \_set_rel_query(self, kwargs: dict\[str, t.Any\]) -\> None:):
 
-> I implemented **test_set_rel_query:** Which
+I implemented **test_set_rel_query:** 
+Which
 >
 > ● Creates an instance of SQLAlchemy.
 >
@@ -94,16 +96,14 @@ For improving coverage for Function 2(def \_set_rel_query(self, kwargs: dict\[st
 
 The **reset_coverage** function resets the branch_coverage dictionary before running tests to ensure accurate tracking for each test run.
 
-> The tests are executed by calling **test_make_metadata** and **test_set_rel_query**. After running the tests, the **print_coverage** function prints the final coverage report
-
-of my own tool indicating which branches were hit.
+The tests are executed by calling **test_make_metadata** and **test_set_rel_query**. After running the tests, the **print_coverage** function prints the final coverage report of my own tool indicating which branches were hit.
 
 To see if the implemented tests were successful the code was run and was successful. As seen on the following picture below.
 <img src="./images/idhovfxj.png" style="width:6.27083in;height:0.90625in" />
 
 To see if it was also true in the coverage tool **coverage.py** the coverage tool was run again. Here are the changes from old coverage results to new coverage results:
 
-> **Old** **Coverage** **Results** **:**
+**Old** **Coverage** **Results** **:**
 <img src="./images/02bkiz3e.png" style="width:6.27083in;height:2.29167in" />
 
 1. def \_make_metadata(self, bind_key: str \| None) -\> sa.MetaData:
@@ -113,7 +113,8 @@ To see if it was also true in the coverage tool **coverage.py** the coverage too
 
 2. def \_set_rel_query(self, kwargs: dict\[str, t.Any\]) -\> None:
 <img src="./images/b54eytsg.png" style="width:6.27083in;height:1.41667in" />
-> **New** **Coverage** **Results:**
+
+**New** **Coverage** **Results:**
 <img src="./images/s0hfyhy3.png" style="width:6.27083in;height:3.38542in" />
 
 1. def \_make_metadata(self, bind_key: str \| None) -\> sa.MetaData:
